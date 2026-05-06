@@ -1,5 +1,5 @@
 # module "ecr" {
-#   source = "/Users/muhammadzeeshan/Work/MyWork/infra-modules/aws/ecr"
+#   git::https://github.com/mzeeshan1/infra-modules.git//aws/vpc?ref=aws-ecr-v1.2.0
 
 #   repositories = {
 #     subscription-reminder = {
