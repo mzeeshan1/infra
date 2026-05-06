@@ -1,5 +1,5 @@
 module "eks" {
-  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.6.0"
+  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.6.1"
 
   clusters = {
     eu-central-1 = {
