@@ -1,0 +1,52 @@
+name: "tofu Apply"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tofu-apply:
+    name: "tofu Apply"
+    runs-on: ubuntu-latest
+    env:
+      TF_VERSION: "v1.11.6"
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup tofu"
+        uses: hashicorp/setup-tofu@v3
+        with:
+          tofu_version: ${{ env.TF_VERSION }}
+
+      - name: Configure Git for private modules
+        run: git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: "tofu Init"
+        id: init
+        run: tofu init
+
+      - name: "tofu Plan"
+        id: plan
+        run: tofu plan -no-color -out=tfplan
+
+      - name: "tofu Apply"
+        id: apply
+        run: tofu apply -auto-approve tfplan
+
+      - name: "tofu Output"
+        run: tofu output -json > tofu_outputs.json
+
+      - name: "Upload Generated Files"
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tofu-artifacts
+          path: |
+            tfplan
+            tofu_outputs.json
+          retention-days: 30
