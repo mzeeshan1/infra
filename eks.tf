@@ -16,16 +16,17 @@ module "eks" {
           max_size      = 1
           desired_size  = 1
           instance_types = [
-            "t3a.large",
+            "t3.micro",
           ]
           labels = { group = "addons" }
         }
         workers = {
-          min_size     = 0
-          max_size     = 1
-          desired_size = 1
+          capacity_type = "SPOT"
+          min_size      = 0
+          max_size      = 1
+          desired_size  = 1
           instance_types = [
-            "t3a.large",
+            "t3.micro",
           ]
           labels = { group = "workers" }
         }
