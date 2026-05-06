@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "git::https://github.com/mzeesahn1/infra-modules.git//aws/vpc"
+  source = "git::https://github.com/mzeesahn1/infra-modules.git//aws/vpc?ref=aws-vpc-v1.0.0"
   vpc = {
     hub = {
       cidr                       = "10.100.0.0/16"
