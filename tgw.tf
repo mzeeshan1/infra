@@ -51,6 +51,7 @@
 # }
 
 # module "tgw" {
+#  #checkov:skip=CKV_TF_1: Using semantic version tags intentionally
 #   git::https://github.com/mzeeshan1/infra-modules.git//aws/tgw?ref=aws-tgw-v1.0.0
 #   tgw = {
 #     eu_central_1 = {
