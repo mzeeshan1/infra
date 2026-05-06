@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "Setup tofu"
-        uses: hashicorp/setup-tofu@v3
+        uses: opentofu/setup-opentofu@v2
         with:
           tofu_version: ${{ env.TF_VERSION }}
 
