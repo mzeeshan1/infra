@@ -9,7 +9,14 @@ module "ecr" {
         filter      = "v*"
         filter_type = "WILDCARD"
       }]
-
+    }
+    subman = {
+      name         = "subman"
+      scan_on_push = true
+      image_tag_mutability_exclusion_filters = [{
+        filter      = "v*"
+        filter_type = "WILDCARD"
+      }]
     }
   }
 }
