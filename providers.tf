@@ -10,7 +10,6 @@ terraform {
     key          = "state"
     use_lockfile = "true"
     region       = "eu-central-1"
-    profile      = "terraform"
     assume_role = {
       role_arn     = "arn:aws:iam::783149339345:role/Terraform"
       session_name = "terraform"
@@ -19,9 +18,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "eu-central-1"
-  profile = "terraform"
-
+  region = "eu-central-1"
   assume_role {
     role_arn     = "arn:aws:iam::783149339345:role/Terraform"
     session_name = "terraform"
