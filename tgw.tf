@@ -51,7 +51,7 @@
 # }
 
 # module "tgw" {
-#   git::https://github.com/mzeeshan1/infra-modules.git//aws/vpc?ref=aws-tgw-v1.0.0
+#   git::https://github.com/mzeeshan1/infra-modules.git//aws/tgw?ref=aws-tgw-v1.0.0
 #   tgw = {
 #     eu_central_1 = {
 #       enable_auto_accept_shared_attachments = false
