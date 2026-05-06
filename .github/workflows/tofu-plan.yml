@@ -26,6 +26,9 @@ jobs:
         run: tofu fmt -check -recursive
         continue-on-error: true
 
+      - name: Configure Git for private modules
+        run: git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
       - name: "Tofu Init"
         id: init
         run: tofu init

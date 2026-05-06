@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "/Users/muhammadzeeshan/Work/MyWork/infra-modules/aws/vpc"
+  source = "git::https://github.com/mzeesahn1/terraform-modules.git//aws/vpc"
   vpc = {
     hub = {
       cidr                       = "10.100.0.0/16"
