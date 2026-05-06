@@ -1,6 +1,6 @@
 module "eks" {
   #checkov:skip=CKV_TF_1: Using semantic version tags intentionally
-  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.6.1"
+  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.6.2"
 
   clusters = {
     eu-central-1 = {
@@ -37,13 +37,6 @@ module "eks" {
           enabled = false
         }
       }
-      cluster_enabled_log_types = [
-        "api",
-        "audit",
-        "authenticator",
-        "controllerManager",
-        "scheduler"
-      ]
     }
   }
 }
