@@ -17,7 +17,7 @@ module "eks" {
           max_size      = 5
           desired_size  = 4
           instance_types = [
-            "t3.micro",
+            "t3.small",
           ]
           labels = { group = "addons" }
         }
@@ -27,7 +27,7 @@ module "eks" {
           max_size      = 5
           desired_size  = 4
           instance_types = [
-            "t3.micro",
+            "t3.small",
           ]
           labels = { group = "workers" }
         }
