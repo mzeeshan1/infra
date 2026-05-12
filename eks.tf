@@ -8,14 +8,18 @@ module "eks" {
         cidr           = "10.10.0.0/16"
         azs            = local.azs
         public_subnets = ["10.10.0.0/22", "10.10.4.0/22", "10.10.8.0/22"]
-        public_subnet_tags_per_az = { eu-central-1a = {
-          "kubernetes.io/role/elb" = "1"
+        public_subnet_tags_per_az = {
+          eu-central-1a = {
+            "kubernetes.io/cluster/eu-central-1" = "shared"
+            "kubernetes.io/role/elb"             = "1"
           }
           eu-central-1b = {
-            "kubernetes.io/role/elb" = "1"
+            "kubernetes.io/cluster/eu-central-1" = "shared"
+            "kubernetes.io/role/elb"             = "1"
           }
           eu-central-1c = {
-            "kubernetes.io/role/elb" = "1"
+            "kubernetes.io/cluster/eu-central-1" = "shared"
+            "kubernetes.io/role/elb"             = "1"
           }
         }
       }
