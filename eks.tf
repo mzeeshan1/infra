@@ -31,7 +31,7 @@ module "eks" {
           max_size      = 5
           desired_size  = 3
           instance_types = [
-            "t3.medium",
+            "m7i-flex.large",
           ]
           labels = { group = "addons" }
         }
@@ -41,7 +41,7 @@ module "eks" {
           max_size      = 5
           desired_size  = 3
           instance_types = [
-            "t3.medium",
+            "m7i-flex.large",
           ]
           labels = { group = "workers" }
         }
