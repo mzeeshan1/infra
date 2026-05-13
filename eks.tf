@@ -27,21 +27,21 @@ module "eks" {
       node_groups = {
         addons = {
           capacity_type = "SPOT"
-          min_size      = 2
+          min_size      = 0
           max_size      = 5
-          desired_size  = 4
+          desired_size  = 3
           instance_types = [
-            "t3.small",
+            "t3.medium",
           ]
           labels = { group = "addons" }
         }
         workers = {
           capacity_type = "SPOT"
-          min_size      = 2
+          min_size      = 0
           max_size      = 5
-          desired_size  = 4
+          desired_size  = 3
           instance_types = [
-            "t3.small",
+            "t3.medium",
           ]
           labels = { group = "workers" }
         }
