@@ -9,6 +9,7 @@ module "oidc" {
     "mzeeshan1/infra:ref:refs/heads/main",
     "mzeeshan1/infra:pull_request"
   ]
+
   github_actions_policy_statements = [
     {
       Effect = "Allow"
