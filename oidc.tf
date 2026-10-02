@@ -1,6 +1,6 @@
 module "oidc" {
   #checkov:skip=CKV_TF_1: Using semantic version tags intentionally
-  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/oidc?ref=aws-oidc-v1.1.0"
+  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/oidc?ref=aws-oidc-v1.2.0"
 
 
   github_oidc_subjects = [
@@ -21,4 +21,3 @@ module "oidc" {
     }
   ]
 }
-
