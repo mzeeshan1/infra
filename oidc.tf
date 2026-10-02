@@ -5,7 +5,9 @@ module "oidc" {
 
   github_oidc_subjects = [
     "mzeeshan1/subscription-reminder:ref:refs/heads/main",
-    "mzeeshan1/subscription-reminder:ref:refs/tags/*"
+    "mzeeshan1/subscription-reminder:ref:refs/tags/*",
+    "mzeeshan1/infra:ref:refs/heads/main",
+    "mzeeshan1/infra:pull_request"
   ]
   github_actions_policy_statements = [
     {
