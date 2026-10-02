@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+      id-token: write
       pull-requests: write
     env:
       TF_VERSION: "v1.11.6"
