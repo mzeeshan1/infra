@@ -74,6 +74,21 @@ module "eks" {
                 }
               ]
             }
+            iam = {
+              policy_statements = [
+                {
+                  sid = "ManageEKSRoles"
+                  actions = [
+                    "iam:CreateRole", "iam:GetRole", "iam:DeleteRole",
+                    "iam:TagRole", "iam:UntagRole", "iam:UpdateAssumeRolePolicy",
+                    "iam:ListRolePolicies", "iam:ListAttachedRolePolicies",
+                    "iam:ListInstanceProfilesForRole",
+                    "iam:AttachRolePolicy", "iam:DetachRolePolicy",
+                  ]
+                  resources = ["arn:aws:iam::261175718795:role/eks-*"]
+                }
+              ]
+            }
           }
         }
       }
