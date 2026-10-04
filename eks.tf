@@ -69,7 +69,7 @@ module "eks" {
                 { sid = "PassRole", actions = ["iam:PassRole"], resources = ["arn:aws:iam::*:role/eks-*"] },
                 {
                   sid       = "EKSRoles"
-                  actions   = ["iam:GetRole", "iam:PassRole"]
+                  actions   = ["iam:GetRole", "iam:PassRole", "iam:ListAttachedRolePolicies"]
                   resources = ["arn:aws:iam::261175718795:role/eks-*"]
                 }
               ]
