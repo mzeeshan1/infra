@@ -1,6 +1,6 @@
 module "eks" {
   #checkov:skip=CKV_TF_1: Using semantic version tags intentionally
-  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.14.1"
+  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.15.0"
 
   clusters = {
     eu-central-1 = {
@@ -49,6 +49,32 @@ module "eks" {
       pod_identity_associations = {
         ack_rds_controller = {
           enabled = false
+        }
+        crossplane = {
+          enabled = true
+          providers = {
+            s3 = {
+              policy_statements = [
+                { sid = "S3", actions = ["s3:*"], resources = ["*"] }
+              ]
+            }
+            ec2 = {
+              policy_statements = [
+                { sid = "EC2", actions = ["ec2:*"], resources = ["*"] }
+              ]
+            }
+            eks = {
+              policy_statements = [
+                { sid = "EKS", actions = ["eks:*"], resources = ["*"] },
+                { sid = "PassRole", actions = ["iam:PassRole"], resources = ["arn:aws:iam::*:role/eks-*"] },
+                {
+                  sid       = "EKSRoles"
+                  actions   = ["iam:GetRole", "iam:PassRole"]
+                  resources = ["arn:aws:iam::261175718795:role/eks-*"]
+                }
+              ]
+            }
+          }
         }
       }
     }
