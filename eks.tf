@@ -71,6 +71,11 @@ module "eks" {
                   sid       = "EKSRoles"
                   actions   = ["iam:GetRole", "iam:PassRole", "iam:ListAttachedRolePolicies"]
                   resources = ["arn:aws:iam::261175718795:role/eks-*"]
+                },
+                {
+                  sid       = "EC2ReadForEKS"
+                  actions   = ["ec2:Describe*"]
+                  resources = ["*"]
                 }
               ]
             }
