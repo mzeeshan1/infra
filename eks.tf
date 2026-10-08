@@ -1,6 +1,6 @@
 module "eks" {
   #checkov:skip=CKV_TF_1: Using semantic version tags intentionally
-  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.15.0"
+  source = "git::https://github.com/mzeeshan1/infra-modules.git//aws/eks?ref=aws-eks-v1.16.0"
 
   clusters = {
     eu-central-1 = {
@@ -76,6 +76,16 @@ module "eks" {
                   sid       = "EC2ReadForEKS"
                   actions   = ["ec2:Describe*"]
                   resources = ["*"]
+                },
+                {
+                  sid = "EKSNodegroupServiceLinkedRole"
+                  actions = [
+                    "iam:GetRole",
+                    "iam:CreateServiceLinkedRole",
+                  ]
+                  resources = [
+                    "arn:aws:iam::261175718795:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup",
+                  ]
                 }
               ]
             }
