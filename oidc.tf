@@ -17,5 +17,5 @@ module "oidc" {
       Resource = values(module.ecr.repository_arns)
     }
   ]
-  terraform_role_arn = "arn:aws:iam::261175718795:role/Terraform"
+  terraform_role_arn = "arn:aws:iam::138420161232:role/Terraform"
 }

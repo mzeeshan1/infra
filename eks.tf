@@ -70,7 +70,7 @@ module "eks" {
                 {
                   sid       = "EKSRoles"
                   actions   = ["iam:GetRole", "iam:PassRole", "iam:ListAttachedRolePolicies"]
-                  resources = ["arn:aws:iam::261175718795:role/eks-*"]
+                  resources = ["arn:aws:iam::138420161232:role/eks-*"]
                 },
                 {
                   sid       = "EC2ReadForEKS"
@@ -84,7 +84,7 @@ module "eks" {
                     "iam:CreateServiceLinkedRole",
                   ]
                   resources = [
-                    "arn:aws:iam::261175718795:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup",
+                    "arn:aws:iam::138420161232:role/aws-service-role/eks-nodegroup.amazonaws.com/AWSServiceRoleForAmazonEKSNodegroup",
                   ]
                 }
               ]
@@ -100,7 +100,7 @@ module "eks" {
                     "iam:ListInstanceProfilesForRole",
                     "iam:AttachRolePolicy", "iam:DetachRolePolicy",
                   ]
-                  resources = ["arn:aws:iam::261175718795:role/eks-*"]
+                  resources = ["arn:aws:iam::138420161232:role/eks-*"]
                 }
               ]
             }
