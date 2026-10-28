@@ -6,12 +6,12 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "tofu.state.infra"
+    bucket       = "tofu.state.infra.work"
     key          = "state"
     use_lockfile = "true"
     region       = "eu-central-1"
     assume_role = {
-      role_arn     = "arn:aws:iam::261175718795:role/Terraform"
+      role_arn     = "arn:aws:iam::138420161232:role/Terraform"
       session_name = "terraform"
     }
   }
@@ -20,7 +20,7 @@ terraform {
 provider "aws" {
   region = "eu-central-1"
   assume_role {
-    role_arn     = "arn:aws:iam::261175718795:role/Terraform"
+    role_arn     = "arn:aws:iam::138420161232:role/Terraform"
     session_name = "terraform"
   }
 }
